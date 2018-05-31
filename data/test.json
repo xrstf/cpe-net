@@ -1,0 +1,31 @@
+{
+  "Microsoft Windows": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "__unknown__"
+  },
+
+  "Microsoft Windows 10 x64 v1511": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64"
+  },
+
+  "Microsoft Windows 10 x64 v1607": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64"
+  },
+
+  "Microsoft Windows 10 x86 v1511": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86"
+  },
+
+  "Microsoft Windows 10 x86 v1607": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86"
+  }
+}

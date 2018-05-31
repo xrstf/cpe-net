@@ -1,0 +1,206 @@
+{
+  "Microsoft Windows": {
+    "vendor": "Microsoft",
+    "product": "Windows"
+  },
+
+  "Microsoft Windows 10 x64 v1511": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64",
+    "version": "10"
+  },
+
+  "Microsoft Windows 10 x64 v1607": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64",
+    "version": "10"
+  },
+
+  "Microsoft Windows 10 x86 v1511": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86",
+    "version": "10"
+  },
+
+  "Microsoft Windows 10 x86 v1607": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86",
+    "version": "10"
+  },
+
+  "Microsoft Windows 7": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "version": "7"
+  },
+
+  "Microsoft Windows 7 SP1 x64": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64",
+    "version": "7",
+    "patchlevel": "SP1"
+  },
+
+  "Microsoft Windows 7 SP1 x86": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86",
+    "version": "7",
+    "patchlevel": "SP1"
+  },
+
+  "Microsoft Windows 8": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "version": "8"
+  },
+
+  "Microsoft Windows 8 X64": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64",
+    "version": "8"
+  },
+
+  "Microsoft Windows 8 X86": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86",
+    "version": "8"
+  },
+
+  "Microsoft Windows 8.1": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "version": "8.1"
+  },
+
+  "Microsoft Windows 8.1 x64": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86_64",
+    "version": "8.1"
+  },
+
+  "Microsoft Windows 8.1 x86": {
+    "vendor": "Microsoft",
+    "product": "Windows",
+    "architecture": "x86",
+    "version": "8.1"
+  },
+
+  "Microsoft Windows RT": {
+    "vendor": "Microsoft",
+    "product": "Windows_RT",
+    "architecture": "armv7",
+    "version": "6.3"
+  },
+
+  "Microsoft Windows RT 8.1": {
+    "vendor": "Microsoft",
+    "product": "Windows_RT",
+    "architecture": "armv7",
+    "version": "6.3"
+  },
+
+  "Ubuntu 14.04": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "14.04"
+  },
+
+  "Ubuntu Trusty Tahr": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "14.04"
+  },
+
+  "Ubuntu 14.10": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "14.10"
+  },
+
+  "Ubuntu Utopic Unicorn": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "14.10"
+  },
+
+  "Ubuntu 15.04": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "15.04"
+  },
+
+  "Ubuntu Vivid Vervet": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "15.04"
+  },
+
+  "Ubuntu 16.04": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "16.04"
+  },
+
+  "Ubuntu 16.04 LTS": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "16.04"
+  },
+
+  "macOS Mountain Lion": {
+    "vendor": "Apple",
+    "product": "OS X",
+    "version": "10.8"
+  },
+
+  "macOS Mavericks": {
+    "vendor": "Apple",
+    "product": "OS X",
+    "version": "10.9"
+  },
+
+  "macOS Yosemite": {
+    "vendor": "Apple",
+    "product": "OS X",
+    "version": "10.10"
+  },
+
+  "macOS El Capitan": {
+    "vendor": "Apple",
+    "product": "OS X",
+    "version": "10.11"
+  },
+
+  "macOS Sierra": {
+    "vendor": "Apple",
+    "product": "macOS",
+    "version": "10.12"
+  },
+
+  "macOS 10.12": {
+    "vendor": "Apple",
+    "product": "macOS",
+    "version": "10.12"
+  },
+
+  "macOS High Sierra": {
+    "vendor": "Apple",
+    "product": "macOS",
+    "version": "10.13"
+  },
+
+  "macOS 10.13": {
+    "vendor": "Apple",
+    "product": "macOS",
+    "version": "10.13"
+  }
+}
