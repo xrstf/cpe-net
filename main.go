@@ -41,8 +41,8 @@ type neuralNetConfig struct {
 }
 
 const (
-	inputNeurons  = 27
-	outputNeurons = 25
+	inputNeurons  = 35
+	outputNeurons = 27
 )
 
 func main() {
@@ -62,8 +62,16 @@ func main() {
 		os.Exit(0)
 	}
 
+	/////////////////////////////////////////////////////////////////////////////
+	// step 1: prepare the network
+
+	log.Println("Reading training data set...")
+
 	// Form the training matrices.
-	inputs, labels := makeInputsAndLabels("data/training.csv")
+	inputs, inputNames, labels, labelNames := makeInputsAndLabels("data/training.csv")
+	rows, _ := inputs.Dims()
+
+	log.Printf("Found %d training test cases.", rows)
 
 	// Define our network architecture and learning parameters.
 	config := neuralNetConfig{
@@ -75,88 +83,63 @@ func main() {
 	}
 
 	// Train the neural network.
+	log.Println("Training neural network...")
+
 	network := newNetwork(config)
 	if err := network.train(inputs, labels); err != nil {
 		log.Fatal(err)
 	}
 
-	// Form the testing matrices.
-	testInputs, testLabels := makeInputsAndLabels("data/test.csv")
+	/////////////////////////////////////////////////////////////////////////////
+	// step 2: prepare our "query"
+
+	// build query and tokenize it
+	query := strings.Join(flag.Args(), " ")
+	queryTokens := tokenize(query)
+
+	log.Printf("Tokenized query: %v\n", queryTokens)
+
+	// map the tokens to those available in our network
+	queryInputs := make([]float64, len(inputNames))
+
+	for i, token := range inputNames {
+		queryInputs[i] = float64(queryTokens[token])
+		delete(queryTokens, token)
+	}
+
+	if len(queryTokens) > 0 {
+		log.Printf("Warning, these tokens do not appear in our training data set and are ignored: %v\n", queryTokens)
+	}
+
+	queryMatrix := mat.NewDense(1, inputNeurons, queryInputs)
+
+	/////////////////////////////////////////////////////////////////////////////
+	// step 3: run the query through the network
+
+	log.Println("Predicting result...")
 
 	// Make the predictions using the trained model.
-	predictions, err := network.predict(testInputs)
+	predictions, err := network.predict(queryMatrix)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// fmt.Printf("predictions = %#v\n", predictions)
+	prediction := predictions.RawRowView(0)
 
-	// Calculate the accuracy of our model.
-	var truePosNeg int
-	numPreds, _ := predictions.Dims()
+	/////////////////////////////////////////////////////////////////////////////
+	// step 4: map the result to the neuron names
 
-	// fmt.Printf("predictions = %#v (numPreds = %d)\n", predictions, numPreds)
+	log.Println("Prediction:")
 
-	for i := 0; i < numPreds; i++ {
-		fmt.Printf("PREDICTION %d\n", i+1)
+	for i, token := range labelNames {
+		predictedValue := prediction[i]
 
-		// Get the label.
-		labelRow := mat.Row(nil, i, testLabels)
-		// fmt.Printf("label row = %#v (this is the expectation)\n", labelRow)
-		// fmt.Printf("at 0 = %#v\n", predictions.At(i, 0))
-		// fmt.Printf("at 1 = %.6f\n", predictions.At(i, 1))
-
-		expects := make([]string, 0)
-		for _, val := range labelRow {
-			expects = append(expects, fmt.Sprintf("%.3F", val))
-		}
-
-		predict := make([]string, 0)
-		for j := 0; j < len(labelRow); j++ {
-			predict = append(predict, fmt.Sprintf("%.3F", predictions.At(i, j)))
-		}
-
-		failure := 0.0
-		diffs := make([]string, 0)
-
-		for j := 0; j < len(labelRow); j++ {
-			e := labelRow[j]
-			p := predictions.At(i, j)
-			d := p - e
-
-			if d < 0 {
-				d = -d
-			}
-
-			diffs = append(diffs, fmt.Sprintf("%.3F", d))
-			failure += d
-		}
-
-		// fmt.Printf("expectation = %s\n", strings.Join(expects, ", "))
-		// fmt.Printf("prediction  = %s\n", strings.Join(predict, ", "))
-		fmt.Printf("failure     = %.2f%%\n", failure/float64(len(labelRow))*100)
-
-		var prediction int
-		for idx, label := range labelRow {
-			if label == 1.0 {
-				prediction = idx
-				break
-			}
-		}
-
-		// Accumulate the true positive/negative count.
-		if predictions.At(i, prediction) == floats.Max(mat.Row(nil, i, predictions)) {
-			truePosNeg++
+		// must be at least 75% sure that the network is correct
+		if predictedValue > 0.75 {
+			parts := strings.Split(token, "__")
+			log.Printf("  %s: %s (%.2f%% certain)\n", parts[0], parts[1], predictedValue*100)
 		}
 	}
-
-	// Calculate the accuracy (subset accuracy).
-	accuracy := float64(truePosNeg) / float64(numPreds)
-
-	// Output the Accuracy value to standard out.
-	fmt.Printf("\nnumPreds = %d\n", numPreds)
-	fmt.Printf("\ntruePosNeg = %d\n", truePosNeg)
-	fmt.Printf("\nAccuracy = %0.2f\n", accuracy)
 }
 
 type testcase map[string]string
@@ -523,7 +506,7 @@ func sumAlongAxis(axis int, m *mat.Dense) (*mat.Dense, error) {
 	return output, nil
 }
 
-func makeInputsAndLabels(fileName string) (*mat.Dense, *mat.Dense) {
+func makeInputsAndLabels(fileName string) (*mat.Dense, []string, *mat.Dense, []string) {
 	// Open the dataset file.
 	f, err := os.Open(fileName)
 	if err != nil {
@@ -545,7 +528,9 @@ func makeInputsAndLabels(fileName string) (*mat.Dense, *mat.Dense) {
 	// float values that will eventually be
 	// used to form matrices.
 	inputsData := make([]float64, inputNeurons*(len(rawCSVData)-1))
+	inputNames := make([]string, 0)
 	labelsData := make([]float64, outputNeurons*(len(rawCSVData)-1))
+	labelNames := make([]string, 0)
 
 	// Will track the current index of matrix values.
 	var inputsIndex int
@@ -555,12 +540,19 @@ func makeInputsAndLabels(fileName string) (*mat.Dense, *mat.Dense) {
 	for idx, record := range rawCSVData {
 		// Skip the header row.
 		if idx == 0 {
+			for i, val := range record {
+				if i > (inputNeurons - 1) {
+					labelNames = append(labelNames, val)
+				} else {
+					inputNames = append(inputNames, val)
+				}
+			}
+
 			continue
 		}
 
 		// Loop over the float columns.
 		for i, val := range record {
-
 			// Convert the value to a float.
 			parsedVal, err := strconv.ParseFloat(val, 64)
 			if err != nil {
@@ -582,5 +574,6 @@ func makeInputsAndLabels(fileName string) (*mat.Dense, *mat.Dense) {
 
 	inputs := mat.NewDense(len(rawCSVData)-1, inputNeurons, inputsData)
 	labels := mat.NewDense(len(rawCSVData)-1, outputNeurons, labelsData)
-	return inputs, labels
+
+	return inputs, inputNames, labels, labelNames
 }
