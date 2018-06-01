@@ -10,6 +10,12 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
+var (
+	hiddenNeuronsFlag = flag.Int("hidden", 3, "number of hidden neurons")
+	epochsFlag        = flag.Int("epochs", 5000, "number of epochs during training phase")
+	learnRateFlag     = flag.Float64("learnrate", 0.3, "learning rate")
+)
+
 func main() {
 	log.SetFlags(0)
 	flag.Parse()
@@ -54,9 +60,9 @@ func queryNetwork(query string) error {
 	config := neuralNetConfig{
 		inputNeurons:  meta.Tokens,
 		outputNeurons: meta.Labels,
-		hiddenNeurons: 3,
-		numEpochs:     5000,
-		learningRate:  0.3,
+		hiddenNeurons: *hiddenNeuronsFlag,
+		numEpochs:     *epochsFlag,
+		learningRate:  *learnRateFlag,
 	}
 
 	// train the neural network
