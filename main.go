@@ -14,6 +14,7 @@ var (
 	hiddenNeuronsFlag = flag.Int("hidden", 3, "number of hidden neurons")
 	epochsFlag        = flag.Int("epochs", 5000, "number of epochs during training phase")
 	learnRateFlag     = flag.Float64("learnrate", 0.3, "learning rate")
+	thresholdFlag     = flag.Float64("threshold", 0.75, "required confidence rate to consider a label a true match")
 )
 
 func main() {
@@ -117,7 +118,7 @@ func queryNetwork(query string) error {
 		predictedValue := prediction[i]
 
 		// must be at least 75% sure that the network is correct
-		if predictedValue > 0.75 {
+		if predictedValue > *thresholdFlag {
 			parts := strings.SplitN(token, ":", 2)
 			log.Printf("  %s: %s (%.2f%% certain)\n", parts[0], parts[1], predictedValue*100)
 		}
