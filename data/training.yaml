@@ -1,0 +1,134 @@
+################################################################################
+# Windows
+
+Microsoft Windows:
+  labels: { vendor: Microsoft, product: Windows }
+
+Microsoft Windows 10 x64 v1511:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86_64, version: 10 }
+
+Microsoft Windows 10 x64 v1607:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86_64, version: 10 }
+
+Microsoft Windows 10 x86 v1511:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86, version: 10 }
+
+Microsoft Windows 10 x86 v1607:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86, version: 10 }
+
+Microsoft Windows 7:
+  labels: { vendor: Microsoft, product: Windows, version: 7 }
+
+Microsoft Windows 7 SP1 x64:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86_64, version: 7, patchlevel: SP1 }
+
+Microsoft Windows 7 SP1 x86:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86, version: 7, patchlevel: SP1 }
+
+Microsoft Windows 8:
+  labels: { vendor: Microsoft, product: Windows, version: 8 }
+
+Microsoft Windows 8 x64:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86_64, version: 8 }
+
+Microsoft Windows 8 x86:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86, version: 8 }
+
+Microsoft Windows 8.1:
+  labels: { vendor: Microsoft, product: Windows, version: 8.1 }
+
+Microsoft Windows 8.1 x64:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86_64, version: 8.1 }
+
+Microsoft Windows 8.1 x86:
+  labels: { vendor: Microsoft, product: Windows, architecture: x86, version: 8.1 }
+
+Microsoft Windows RT:
+  labels: { vendor: Microsoft, product: Windows_RT, architecture: armv7, version: 6.3 }
+  aliases:
+    - Microsoft Windows RT 8.1
+
+################################################################################
+# Ubuntu
+
+Ubuntu 14.04:
+  labels: { vendor: Canonical, product: Ubuntu, version: 14.04 }
+  aliases:
+    - Ubuntu 14.04 LTS
+    - Ubuntu Trusty Tahr
+
+Ubuntu 14.10:
+  labels: { vendor: Canonical, product: Ubuntu, version: 14.10 }
+  aliases:
+    - Ubuntu Utopic Unicorn
+
+Ubuntu 15.04:
+  labels: { vendor: Canonical, product: Ubuntu, version: 15.04 }
+  aliases:
+    - Ubuntu Vivid Vervet
+
+Ubuntu 15.10:
+  labels: { vendor: Canonical, product: Ubuntu, version: 15.10 }
+  aliases:
+    - Ubuntu Wily Werewolf
+
+Ubuntu 16.04:
+  labels: { vendor: Canonical, product: Ubuntu, version: 16.04 }
+  aliases:
+    - Ubuntu 16.04 LTS
+    - Ubuntu Xenial Xerus
+
+Ubuntu 16.10:
+  labels: { vendor: Canonical, product: Ubuntu, version: 16.10 }
+  aliases:
+    - Ubuntu Yakkety Yak
+
+Ubuntu 17.04:
+  labels: { vendor: Canonical, product: Ubuntu, version: 17.04 }
+  aliases:
+    - Ubuntu Zesty Zapus
+
+################################################################################
+# OS X / macOS
+
+macOS Mountain Lion:
+  labels: { vendor: Apple, product: OS X, version: 10.8 }
+  aliases:
+    - macOS 10.8
+    - OS X 10.8
+    - OS X Mountain Lion
+
+macOS Mavericks:
+  labels: { vendor: Apple, product: OS X, version: 10.9 }
+  aliases:
+    - macOS 10.9
+    - OS X 10.9
+    - OS X Mavericks
+
+macOS Yosemite:
+  labels: { vendor: Apple, product: OS X, version: 10.10 }
+  aliases:
+    - macOS 10.10
+    - OS X 10.10
+    - OS X Yosemite
+
+macOS El Capitan:
+  labels: { vendor: Apple, product: OS X, version: 10.11 }
+  aliases:
+    - macOS 10.11
+    - OS X 10.11
+    - OS X El Capitan
+
+macOS Sierra:
+  labels: { vendor: Apple, product: OS X, version: 10.12 }
+  aliases:
+    - macOS 10.12
+    - OS X 10.12
+    - OS X Sierra
+
+macOS High Sierra:
+  labels: { vendor: Apple, product: OS X, version: 10.13 }
+  aliases:
+    - macOS 10.13
+    - OS X 10.13
+    - OS X High Sierra

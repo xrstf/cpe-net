@@ -1,0 +1,85 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "Y0gxmu9OGGiI4DMlBaJ/jUrg6sI=",
+			"path": "gonum.org/v1/gonum/blas",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "HCb6HBvMJb8h3i2xdmYFXkT0C3A=",
+			"path": "gonum.org/v1/gonum/blas/blas64",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "R0BQLfXTmh1uueYE9papRfBz1zI=",
+			"path": "gonum.org/v1/gonum/blas/gonum",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "cm3+4+5K0jp1qbMwXPaCic/sBEk=",
+			"path": "gonum.org/v1/gonum/floats",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "+NFd4Y8t2G+vZIrE07vLHhzgkuA=",
+			"path": "gonum.org/v1/gonum/internal/asm/c128",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "kBcTnprdi/cg3YrGa8sOQuCINro=",
+			"path": "gonum.org/v1/gonum/internal/asm/f32",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "koX9pUwgoIX7BAqpr6X11FxLQsE=",
+			"path": "gonum.org/v1/gonum/internal/asm/f64",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "jXY/JvFsbCRu87qh4VnyEMI89yc=",
+			"path": "gonum.org/v1/gonum/internal/math32",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "+JhF/vxlLN2i2VspTfNAwlm7Dvw=",
+			"path": "gonum.org/v1/gonum/lapack",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "twUoKeW8Jt7+k52hj0c1hO0KrRw=",
+			"path": "gonum.org/v1/gonum/lapack/gonum",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "c04H+XilnwfQj8RWdscBBJczv2o=",
+			"path": "gonum.org/v1/gonum/lapack/lapack64",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "iflZCvIo3BIfA0WRzJmpgMgWQK8=",
+			"path": "gonum.org/v1/gonum/mat",
+			"revision": "6ee525f5f29c187404c3c1398a7ae06a4c272cee",
+			"revisionTime": "2018-05-31T04:43:20Z"
+		},
+		{
+			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
+			"revisionTime": "2018-03-28T19:50:20Z"
+		}
+	],
+	"rootPath": "github.com/xrstf/cpe-net"
+}

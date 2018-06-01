@@ -1,12 +1,13 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"gopkg.in/yaml.v2"
 )
 
 type valuelessMap map[string]struct{}
@@ -130,10 +131,13 @@ func createTrainingDataSet(source string) (*trainingDataSet, error) {
 	}
 	defer file.Close()
 
-	type labels map[string]string
+	type sample struct {
+		Labels  map[string]string
+		Aliases []string
+	}
 
-	testcases := make(map[string]labels)
-	decoder := json.NewDecoder(file)
+	testcases := make(map[string]sample)
+	decoder := yaml.NewDecoder(file)
 
 	err = decoder.Decode(&testcases)
 	if err != nil {
@@ -141,8 +145,12 @@ func createTrainingDataSet(source string) (*trainingDataSet, error) {
 	}
 
 	set := newTrainingDataSet()
-	for swname, labels := range testcases {
-		set.Add(swname, labels)
+	for swname, sample := range testcases {
+		set.Add(swname, sample.Labels)
+
+		for _, alias := range sample.Aliases {
+			set.Add(alias, sample.Labels)
+		}
 	}
 
 	return set, nil

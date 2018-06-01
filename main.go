@@ -121,7 +121,7 @@ func queryNetwork(query string) error {
 }
 
 func convertTrainingDataSet() error {
-	set, err := createTrainingDataSet("data/training.json")
+	set, err := createTrainingDataSet("data/training.yaml")
 	if err != nil {
 		return err
 	}
