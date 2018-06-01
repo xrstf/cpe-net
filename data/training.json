@@ -144,6 +144,18 @@
     "version": "15.04"
   },
 
+  "Ubuntu 15.10": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "15.10"
+  },
+
+  "Ubuntu Wily Werewolf": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "15.10"
+  },
+
   "Ubuntu 16.04": {
     "vendor": "Canonical",
     "product": "Ubuntu",
@@ -154,6 +166,36 @@
     "vendor": "Canonical",
     "product": "Ubuntu",
     "version": "16.04"
+  },
+
+  "Ubuntu Xenial Xerus": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "16.04"
+  },
+
+  "Ubuntu 16.10": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "16.10"
+  },
+
+  "Ubuntu Yakkety Yak": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "16.10"
+  },
+
+  "Ubuntu 17.04": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "17.04"
+  },
+
+  "Ubuntu Zesty Zapus": {
+    "vendor": "Canonical",
+    "product": "Ubuntu",
+    "version": "17.04"
   },
 
   "macOS Mountain Lion": {
