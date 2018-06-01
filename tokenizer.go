@@ -5,9 +5,11 @@ import (
 	"strings"
 )
 
-var isVersion = regexp.MustCompile(`[0-9]+\.[0-9]+(\.[0-9]+)+`)
-var isDate = regexp.MustCompile(`[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]`)
-var isDashes = regexp.MustCompile(`^-+$`)
+var (
+	isVersion = regexp.MustCompile(`[0-9]+\.[0-9]+(\.[0-9]+)+`)
+	isDate    = regexp.MustCompile(`[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]`)
+	isDashes  = regexp.MustCompile(`^-+$`)
+)
 
 func tokenize(software string) map[string]int {
 	result := make(map[string]int)

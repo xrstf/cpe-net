@@ -1,15 +1,14 @@
 default: build
 
 build: fix
-	go build -v -tags netgo -ldflags '-s -w' .
+	go build -v -ldflags '-s -w' .
 
 fix: *.go
 	goimports -l -w .
 	gofmt -l -w .
 
 training: default
-	cpe-net.exe training > data/training.csv
-	copy data\training.csv data\test.csv
+	cpe-net.exe training
 
 magic: default
 	cpe-net.exe
